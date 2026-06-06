@@ -128,7 +128,7 @@ A simulated projector driver focused on control system architecture:
 
 ---
 
-## Projector Driver Architecture
+## Projector Driver 
 
 ```mermaid
 flowchart TD
