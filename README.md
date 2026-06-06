@@ -85,6 +85,18 @@ R --> EB
 SYS --> R
 ```
 
+---
+
+## Event Flow (How the System Works)
+
+The diagram below shows how a button press travels through the system:
+
+1. A physical button is pressed in the Button Panel  
+2. The Event Bus receives and routes the event  
+3. Either an Event Handler or Scene Engine processes it  
+4. The Device Layer updates the room state  
+5. The UI refreshes to reflect the new system status 
+
 ```mermaid
 sequenceDiagram
 
@@ -115,7 +127,98 @@ A simulated projector driver focused on control system architecture:
 - State tracking via tables
 - Concepts of TCP-based communication
 
-Planned enhancements:
+---
+
+## System Architecture
+
+```mermaid
+flowchart TD
+
+flowchart TD
+
+%% =========================
+%% PUBLIC API LAYER
+%% =========================
+API[Public API<br/>PowerOn / Input / Volume / Mute / Status]
+
+%% =========================
+%% TRANSPORT LAYER
+%% =========================
+TCP[SendCommand()<br/>TCP Abstraction Layer]
+
+%% =========================
+%% DEVICE SIMULATION
+%% =========================
+SIM[Simulated Device<br/>SimulateResponse()]
+
+%% =========================
+%% RESPONSE PARSER
+%% =========================
+PARSE[ParseResponse()<br/>Command Interpreter]
+
+%% =========================
+%% STATE MODEL
+%% =========================
+STATE[Projector State Table<br/>Control + Feedback + Connection]
+
+%% =========================
+%% DEVICE HARDWARE (CONCEPTUAL)
+%% =========================
+HW[Projector Hardware<br/>TCP Device]
+
+%% =========================
+%% FLOW
+%% =========================
+
+API --> TCP
+TCP --> HW
+TCP --> SIM
+HW --> PARSE
+SIM --> PARSE
+PARSE --> STATE
+STATE --> API
+```
+---
+
+## Command + Response Flow (TCP Simulation)
+
+This diagram shows how a command travels through the simulated TCP driver:
+
+1. A public API function is called (PowerOn, Input, Volume, etc.)  
+2. The command is sent through SendCommand (TCP layer)  
+3. The device (or simulation layer) responds  
+4. ParseResponse interprets the message  
+5. The internal state table is updated 
+
+```mermaid
+sequenceDiagram
+
+participant API as Public API
+participant TCP as SendCommand
+participant DEV as Device/Sim
+participant PARSE as ParseResponse
+participant STATE as State Table
+
+API->>TCP: PowerOn()
+TCP->>DEV: "PWR ON"
+DEV->>PARSE: "PWR=ON"
+PARSE->>STATE: Power = true
+
+API->>TCP: SetInput("HDMI2")
+TCP->>DEV: "INPUT HDMI2"
+DEV->>PARSE: "INPUT=HDMI2"
+PARSE->>STATE: Input = HDMI2
+
+API->>TCP: SetVolume(75)
+TCP->>DEV: "VOL 75"
+DEV->>PARSE: (no response simulated)
+PARSE->>STATE: Volume = 75
+```
+
+---
+
+
+## Planned enhancements:
 - Q-SYS `TcpSocket.New()` integration concepts
 - Event handlers and callbacks
 - Polling mechanisms
