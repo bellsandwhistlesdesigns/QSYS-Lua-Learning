@@ -84,8 +84,7 @@ R --> EB
 
 SYS --> R
 
-```mermaid
-Sequence Diagram
+sequencediagram
 
 participant BP as ButtonPanel
 participant EB as EventBus
@@ -100,6 +99,8 @@ EB->>SE: RunScene(Presentation)
 SE->>DL: Set projectorOn = true
 SE->>DL: Set lightsOn = false
 DL->>R: Update state
+R->>UI: Push state update
+UI-BP->> Render new status
 
 ```
 
