@@ -133,40 +133,25 @@ A simulated projector driver focused on control system architecture:
 ```mermaid
 flowchart TD
 
-%% =========================
 %% PUBLIC API LAYER
-%% =========================
 API[Public API<br/>PowerOn / Input / Volume / Mute / Status]
 
-%% =========================
 %% TRANSPORT LAYER
-%% =========================
-TCP[SendCommand()<br/>TCP Abstraction Layer]
+TCP[SendCommand - TCP Abstraction Layer]
 
-%% =========================
 %% DEVICE SIMULATION
-%% =========================
-SIM[Simulated Device<br/>SimulateResponse()]
+SIM[Simulated Device<br/>SimulateResponse]
 
-%% =========================
 %% RESPONSE PARSER
-%% =========================
-PARSE[ParseResponse()<br/>Command Interpreter]
+PARSE[ParseResponse - Command Interpreter]
 
-%% =========================
 %% STATE MODEL
-%% =========================
 STATE[Projector State Table<br/>Control + Feedback + Connection]
 
-%% =========================
 %% DEVICE HARDWARE (CONCEPTUAL)
-%% =========================
 HW[Projector Hardware<br/>TCP Device]
 
-%% =========================
 %% FLOW
-%% =========================
-
 API --> TCP
 TCP --> HW
 TCP --> SIM
