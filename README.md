@@ -83,8 +83,9 @@ R --> UI
 R --> EB
 
 SYS --> R
+```
 
-
+```mermaid
 sequenceDiagram
 
 participant BP as ButtonPanel
