@@ -25,7 +25,7 @@ A simulated AV control system designed to practice:
 
 ---
 
-## System Architecture
+## AV Control System Architecture
 
 ```mermaid
 flowchart TD
@@ -87,7 +87,7 @@ SYS --> R
 
 ---
 
-## Event Flow (How the System Works)
+## AV System Event Flow (How the System Works)
 
 The diagram below shows how a button press travels through the system:
 
@@ -118,7 +118,6 @@ UI->>BP: Render new status
 
 ```
 
-
 #### TCP Socket Projector Driver
 A simulated projector driver focused on control system architecture:
 - Driver structure and design patterns
@@ -129,7 +128,7 @@ A simulated projector driver focused on control system architecture:
 
 ---
 
-## System Architecture
+## Projector Driver Architecture
 
 ```mermaid
 flowchart TD
@@ -176,9 +175,10 @@ SIM --> PARSE
 PARSE --> STATE
 STATE --> API
 ```
+
 ---
 
-## Command + Response Flow (TCP Simulation)
+## Projector Command + Response Flow (TCP Simulation)
 
 This diagram shows how a command travels through the simulated TCP driver:
 
