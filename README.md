@@ -102,7 +102,7 @@ SE->>DL: Set projectorOn = true
 SE->>DL: Set lightsOn = false
 DL->>R: Update state
 R->>UI: Push state update
-UI-BP->> Render new status
+UI->>BP: Render new status
 
 ```
 
