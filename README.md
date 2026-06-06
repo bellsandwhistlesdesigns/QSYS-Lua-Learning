@@ -199,6 +199,14 @@ DEV->>PARSE: (no response simulated)
 PARSE->>STATE: Volume = 75
 ```
 
+---
+
+## Archives
+- Early versions of my projects
+- Updated as projects evolve
+
+---
+
 ## Planned enhancements:
 - Q-SYS `TcpSocket.New()` integration concepts
 - Event handlers and callbacks
