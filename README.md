@@ -14,6 +14,8 @@ Fundamental Lua concepts and small exercises, including:
 - Control flow (if/loops)
 - Event-driven patterns
 
+##
+
 ### Projects
 
 #### AV Control System
@@ -22,8 +24,6 @@ A simulated AV control system designed to practice:
 - Function-based control logic
 - Event-driven programming concepts
 - System state modeling
-
----
 
 ## AV Control System Architecture
 
@@ -118,6 +118,8 @@ UI->>BP: Render new status
 
 ```
 
+---
+
 #### TCP Socket Projector Driver
 A simulated projector driver focused on control system architecture:
 - Driver structure and design patterns
@@ -126,7 +128,6 @@ A simulated projector driver focused on control system architecture:
 - State tracking via tables
 - Concepts of TCP-based communication
 
----
 
 ## Projector Driver 
 
@@ -218,7 +219,7 @@ PARSE->>STATE: Volume = 75
 
 ##  License & Usage
 
-© 2026 Douglas Moth – Bells & Whistles Designs. All rights reserved.
+© 2026 Douglas Moth - Bells & Whistles Designs. All rights reserved.
 
 This repository is provided for portfolio and evaluation purposes only.
 
