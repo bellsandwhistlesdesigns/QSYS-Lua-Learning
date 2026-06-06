@@ -134,8 +134,6 @@ A simulated projector driver focused on control system architecture:
 ```mermaid
 flowchart TD
 
-flowchart TD
-
 %% =========================
 %% PUBLIC API LAYER
 %% =========================
@@ -214,9 +212,6 @@ TCP->>DEV: "VOL 75"
 DEV->>PARSE: (no response simulated)
 PARSE->>STATE: Volume = 75
 ```
-
----
-
 
 ## Planned enhancements:
 - Q-SYS `TcpSocket.New()` integration concepts
