@@ -84,7 +84,8 @@ R --> EB
 
 SYS --> R
 
-sequencediagram
+
+sequenceDiagram
 
 participant BP as ButtonPanel
 participant EB as EventBus
